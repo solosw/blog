@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>文章</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <link rel="stylesheet" href="lib/css/editormd.min.css">
+    <link rel="stylesheet" href="lib/css/editormd.preview.css">
+    <style>
+        #html-container {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        #mark {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        #mark label,
+        #mark textarea,
+        #mark input {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+
+        #mark textarea {
+            width: 70%;
+            margin-right: 10%;
+
+            /* 根据需要调整宽度 */
+        }
+
+        #mark input {
+            width: 20%;
+            /* 根据需要调整宽度 */
+        }
+
+        #mark-content {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 50%;
+            margin: 0 auto;
+            background-color: aliceblue;
+
+        }
+
+        .markbody {
+            margin: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="assets/js/markdown-it.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="lib/editormd.js"></script>
+    <script src="assets/js/getUrlParameter.js"></script>
+    <script src="assets/js/Nav.js"></script>
+    <script src="lib/lib/marked.min.js"></script>
+    <script src="lib/lib/prettify.min.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+            var kind = getUrlParameter('kind');
+            var title = getUrlParameter('title');
+            var data = {
+                kind: kind,
+                title: title
+            }
+            $.ajax({
+                url: '/getcontent',
+                type: 'GET',
+                data: data,
+                success: function (response) {
+                    //var md = window.markdownit();
+                    //var html = markdownToHtml(response);
+                    //document.getElementById("html-container").innerHTML = html;
+                    var testView = editormd.markdownToHTML("html-container", {
+                         markdown : response, // Also, you can dynamic set Markdown text
+                         htmlDecode : true,  // Enable / disable HTML tag encode.
+                         htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+                    });
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            })
+            initComment(title, kind);
+
+
+            $("#comment-button").click(function (event) {
+
+
+                var comment = $("#comment").val();
+                var date = new Date().toLocaleString();
+                var data = {
+                    date: date,
+                    comment: comment,
+                    title: title,
+                    kind: kind
+                }
+                // $("#mark-content").append(content); // 使用jQuery的方式将评论追加到容器
+                $.ajax({
+                    url: '/sendmark',
+                    type: 'GET',
+                    data: data,
+                    success: function (response) {
+
+                        if (response == undefined || response == "") {
+                            alert("请检查登陆");
+                            return;
+                        }
+                        addComment(response, new Date().toLocaleString(), comment);
+                        //location.reload();
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                })
+                // 清空表单内容
+
+            });
+
+        })
+        function addComment(name, date, comment) {
+            var $markBody = $('<div class="markbody"><strong class="name"></strong><div class="time"></div><div class="content"></div></div>');
+
+            $markBody.find('.name').text(name);
+            $markBody.find('.time').text(date);
+            $markBody.find('.content').text(comment);
+
+            $("#mark-content").append($markBody);
+            $("#comment").val("");
+        }
+
+        function initComment(title, kind) {
+
+            var data = {
+                title: title,
+                kind: kind
+            }
+            $.ajax({
+                url: '/getmark',
+                type: 'GET',
+                data: data,
+                success: function (response) {
+
+                    if (response == undefined || response == null) {
+                        return;
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        addComment(response[i].name, response[i].date, response[i].comment);
+                    }
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            })
+        }
+
+        function markdownToHtml(markdown) {
+            // 更新 Editor.md 编辑器的 Markdown 内容
+            var html = marked.parse(markdown);
+
+            // 返回 HTML 结果
+            return html;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="editor" style="display: none;"></div>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search"
+        style="position: absolute; width: 100%; top: 0;">
+        <div class="container"><i class="fa fa-star"></i><a class="navbar-brand" href="#">Solosw</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link" onclick="getIndexPage()">首页</a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="html-container" style="margin-top: 5%;background-color: rgba(240, 248, 255, 0.5);;">
+        <textarea style="display:none;">### Hello world!</textarea>
+    </div>
+    <div id="mark">
+        <textarea id="comment" name="comment" rows="4" cols="50" required placeholder="欢迎评论~"></textarea><br><br>
+        <input type="button" value="发布" id="comment-button">
+    </div>
+    <div id="mark-content">
+
+        <div><br>评论区</div>
+        <div id="markbody" class="markbody">
+
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>工具列表</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" data-aos="fade-up"
+        data-aos-duration="1200">
+        <div class="container"><i class="fa fa-star"></i><a class="navbar-brand" href="#">Solosw</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link" onclick="getIndexPage()">首页</a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="mydiv"></div>
+    <div class="projects-clean" style="background: url(&quot;assets/img/tools.png&quot;), rgba(255,255,255,0);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="color: white;">应用</h2>
+            </div>
+            <div class="row projects" id="toollist">
+                <div class="col-sm-6 col-lg-4 item" id="table" style="background-color: gray;">
+                    <img class="img-fluid" src="assets/img/desk.jpg" id="toolimage">
+                    <h3 class="name" style="color: rgb(226,232,238);" id="toolname">Project Name</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <script src="assets/js/Nav.js"></script>
+
+    <script>
+        function clearall() {
+            $('div#table').remove();
+        }
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/gettoollist.action', // 后端接口的URL
+                type: 'POST',
+                success: function (response) {
+                    // 处理上传成功后的逻辑
+                    clearall();
+                    for (var i = 0; i < response.length; i++) {
+                        
+                        addTool(response[i].image, response[i].name);
+                    }
+                },
+                error: function (error) {
+                    // 处理上传失败后的逻辑
+                    alert(error);
+                }
+            });
+        })
+        function addTool(src, name) {
+            var div = $('<div>').addClass('col-sm-6 col-lg-4 item').css('background-color','gray');
+            var img = $('<img>').addClass('img-fluid').attr('src', src).attr('id', 'toolimage');
+            var h3 = $('<h3>').addClass('name').css('color', 'rgb(226,232,238)').attr('id', 'toolname').text(name);
+            div.click(function () {
+                $.ajax({
+                    url: '/gettool', // 后端接口的URL
+                    type: 'POST',
+                    data: { data: name },
+                    success: function (response) {
+                      window.location.href=response;
+                    },
+                    error: function (error) {
+                        // 处理上传失败后的逻辑
+                        alert(error);
+                    }
+                });
+            })
+            div.append(img, h3);
+            $('#toollist').append(div);
+        }
+
+    </script>
+</body>
+
+</html>

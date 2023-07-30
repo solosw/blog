@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    
+</html>
+<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/getUrlParameter.js"></script>
+    <script>
+        $(document).ready(function(){
+            getName();
+            initPage();
+        })
+        function getName(){
+            var name=getUrlParameter('name');
+            $.ajax({
+                url:"gettoolhtml",
+                type:"POST",
+                data:{data:name},
+                success:function(response){
+
+                    $('html').append(response);
+                },
+                error:function(error){
+                    alert(error);
+                }
+            })
+        }
+    </script>

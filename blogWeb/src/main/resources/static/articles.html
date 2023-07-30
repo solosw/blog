@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>文章分类</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" data-aos="fade-up"
+        data-aos-duration="1200">
+        <div class="container"><i class="fa fa-star"></i><a class="navbar-brand" href="#">Solosw</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <div class="nav-link" onclick="getIndexPage()">首页</div>
+                    </li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">文章分类</h2>
+            </div>
+            <div class="row articles" id="article-kind">
+                <div class="col-sm-6 col-md-4 item" style="display: none;">
+                    <img class="img-fluid" src="assets/img/desk.jpg">
+                    <h3 class="name">Article Title</h3>
+                    <a class="action" href="#">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <script src="assets/js/Nav.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/getkind",
+                type: "GET",
+                success: function (response) {
+                    var data = response;
+
+                    // 遍历响应数据，为每个图片创建并展示<img>元素
+                    for (var i = 0; i < data.length; i++) {
+
+                        var url = data[i].imageData; // 根据实际图片类型修改
+                        addKind(data[i].name,url);
+                    }
+                    
+                   
+                }
+            });
+
+        })
+
+        function addKind(title, url) {
+            var element = $('<div>', {
+                class: 'col-sm-6 col-md-4 item'
+            }).append(
+                $('<img>', {
+                    class: 'img-fluid',
+                    src: 'assets/img/desk.jpg',
+                }),
+                $('<h3>', {
+                    class: 'name',
+                    text: 'Article Title'
+                }),
+                $('<a>', {
+                    class: 'action',
+                    href: '#'
+                }).append(
+                    $('<i>', {
+                        class: 'fa fa-arrow-circle-right'
+                    })
+                )
+            );
+            element.find('h3.name').text(title);
+            element.find('img.img-fluid').attr('src', url);
+            element.find('i').on('click', function () {
+                $.ajax({
+                url: "/getlist",
+                type: "GET",
+                data:{data:title},
+                success: function (response) {
+                    window.location.href=response;
+                }
+            });
+            });
+            $('#article-kind').append(element);
+        }
+    </script>
+</body>
+
+</html>

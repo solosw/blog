@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>后台</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap1.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="lib/css/editormd.css" />
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>博客后台</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="backarticles.html"><span>文章管理</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="backtools.html"><span>应用管理</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="backuser.html"><span>用户管理</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="backmark.html"><span>评论管理</span></a></li>
+                    <li class="nav-item"></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
+                        id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" style="width: 100%;height: auto;">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
+                            id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"><i
+                                        class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in"
+                                    aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small"
+                                                type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0"
+                                                    type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                                    <div
+                                        class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                        <h6 class="dropdown-header">alerts center</h6>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-primary icon-circle"><i
+                                                        class="fas fa-file-alt text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">December 12, 2019</span>
+                                                <p>A new monthly report is ready to download!</p>
+                                            </div>
+                                        </a>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-success icon-circle"><i
+                                                        class="fas fa-donate text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">December 7, 2019</span>
+                                                <p>$290.29 has been deposited into your account!</p>
+                                            </div>
+                                        </a>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-warning icon-circle"><i
+                                                        class="fas fa-exclamation-triangle text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">December 2, 2019</span>
+                                                <p>Spending Alert: We've noticed unusually high spending for your
+                                                    account.</p>
+                                            </div>
+                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
+                                            Alerts</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                                    <div
+                                        class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                        <h6 class="dropdown-header">alerts center</h6>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                    src="assets/img/avatars/avatar4.jpeg">
+                                                <div class="bg-success status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>Hi there! I am wondering if you can
+                                                        help me with a problem I've been having.</span></div>
+                                                <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
+                                            </div>
+                                        </a>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                    src="assets/img/avatars/avatar2.jpeg">
+                                                <div class="status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>I have the photos that you ordered last
+                                                        month!</span></div>
+                                                <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
+                                            </div>
+                                        </a>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                    src="assets/img/avatars/avatar3.jpeg">
+                                                <div class="bg-warning status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>Last month's report looks great, I am
+                                                        very happy with the progress so far, keep up the good
+                                                        work!</span></div>
+                                                <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
+                                            </div>
+                                        </a>
+                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                    src="assets/img/avatars/avatar5.jpeg">
+                                                <div class="bg-success status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>Am I a good boy? The reason I ask is
+                                                        because someone told me that people say this to all dogs, even
+                                                        if they aren't good...</span></div>
+                                                <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
+                                            </div>
+                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
+                                            Alerts</a>
+                                    </div>
+                                </div>
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-right"
+                                    aria-labelledby="alertsDropdown"></div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
+                                            log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
+                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div></div>
+                    </div>
+                </nav>
+                <div id="articlediv" style="margin-left: 25%;">
+                    <div class="row" style="width: 60%;">
+                        <div class="col offset-md-3"><button class="btn btn-primary" type="button" style="width: 100px;"
+                                onclick="writearticle()">写文章</button></div>
+                        <div class="col"><button class="btn btn-primary" type="button" style="width: 100px;"
+                                onclick="deletearticle()">删除文章</button></div>
+                    </div>
+                    <div class="col" style="height: auto;margin: 0px;margin-top: 32px;width: 60%;">
+                        <div class="row" id="articlepanel" style="display: none;">
+                            <div class="input-group"><input class="bg-light border-0 small" type="text"
+                                    placeholder="Search for ..." id="searchText">
+                                <div class="input-group-append"><button class="btn btn-primary py-0" type="button"
+                                        onclick="searchArticle()"><i class="fas fa-search"></i></button></div>
+                            </div>
+                            <div class="col" id="articletable" style="height: auto;">
+                                <div class="row" style="height: 80px;">
+                                    <div class="col" style="height: auto;width: auto;"><label
+                                            class="col-form-label">分类</label></div>
+                                    <div class="col"><label class="col-form-label">标题</label></div>
+                                    <div class="col"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="writelayout">
+                            <div id="test-editormd">
+                                <textarea id="articlecontent" style="display:none;">
+                                </textarea>
+
+                            </div>
+                            <div style="display: flex; justify-content: center;align-items: center;">
+
+                                <label style="display: inline-block;
+                                font-weight: bold;
+                                color: #333;margin-right: -20%;
+                                ">图片:<input type="file" name="imageUpload" id="imageUpload" placeholder="图片"> </label>
+
+
+                                <input id="articlekind" type="text" placeholder="输入文章分类" style="margin-right: 10px;">
+                                <input id="articletitle" type="text" placeholder="输入文章标题" style="margin-right:10px">
+                                <button onclick="sumbitArticle()">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Solosw 2023</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="lib/editormd.min.js"></script>
+    <script src="assets/js/imageTobase64.js"></script>
+    <script type="text/javascript">
+        var testEditor;
+        $(function () {
+            testEditor = editormd("test-editormd", {
+                width: "90%",
+                height: 640,
+                syncScrolling: "single",
+                path: "lib/lib/"
+            });
+
+
+        });
+        function writearticle() {
+            $('#writelayout').css('display', 'block');
+            $('#articlepanel').css('display', 'none');
+        }
+        function deletearticle() {
+            $('#writelayout').css('display', 'none');
+            $('#articlepanel').css('display', 'block');
+            $.ajax({
+                url: "/deletelist",
+                type: 'GET',
+                success: function (response) {
+                    for (var i = 0; i < response.length; i++) {
+                        addDeleteList(response[i].title, response[i].kind);
+                    }
+
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            })
+        }
+        function sumbitArticle() {
+            var file = $('#imageUpload')[0].files[0];
+            var kind = $('#articlekind').val();
+            var title = $('#articletitle').val();
+            var content = $('#articlecontent').val();
+            var formData = new FormData();
+            formData.append('kind', kind);
+            formData.append('title', title);
+            formData.append('content', content);
+            var data={};
+            if (file) {
+                
+                imageToBase64(file).then((base64) => {
+                    
+                    data.kind=kind;
+                    data.title=title;
+                    data.imagebase=base64;
+                    data.content=content;
+                    // 发送Ajax请求
+                    $.ajax({
+                        url: '/uploadArticle',  // 替换为实际的后端处理文件的URL
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        success: function (response) {
+                            // 处理上传成功后的逻辑
+                            alert(response);
+                        },
+                        error: function (xhr, status, error) {
+                            // 处理上传失败后的逻辑
+                            alert('上传失败：', error);
+                        }
+                    });
+                }).catch((error) => {
+                    console.error(error); // 处理错误
+                });
+
+
+
+            } else {
+                $.ajax({
+                    url: '/uploadArticlewithoutkind',  // 替换为实际的后端处理文件的URL
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        // 处理上传成功后的逻辑
+                        alert(response);
+                    },
+                    error: function (xhr, status, error) {
+                        // 处理上传失败后的逻辑
+                        alert('上传失败：', error);
+                    }
+                });
+            }
+
+
+        }
+        function addDeleteList(title, kind) {
+            var divElement = $('<div>').addClass('row').attr('id', 'articlelist').css({
+                height: '80px',
+                backgroundColor: 'aliceblue'
+            });
+
+            // 创建第一个col元素并添加label
+            var col1Element = $('<div>').addClass('col').css({
+                height: 'auto',
+                width: 'auto'
+            }).append($('<label>').addClass('col-form-label').text(kind));
+
+            // 创建第二个col元素并添加label
+            var col2Element = $('<div>').addClass('col').append($('<label>').addClass('col-form-label').text(title));
+
+            // 创建第三个col元素并添加删除按钮
+            var col3Element = $('<div>').addClass('col').append($('<button>').addClass('btn btn-primary').attr('type', 'button').text('删除'));
+            col3Element.find('button').click(function () {
+                // 在点击按钮时执行的操作
+                var data = {
+                    kind: kind,
+                    title, title
+                }
+                $.ajax({
+                    url: '/deletearticle',  // 替换为实际的后端处理文件的URL
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        // 处理上传成功后的逻辑
+                        if (response == true) {
+                            divElement.remove();
+                        } else {
+                            alert("文章不存在");
+                        }
+                        //alert(response);
+                    },
+                    error: function (xhr, status, error) {
+                        // 处理上传失败后的逻辑
+                        alert('删除失败：' + error);
+                    }
+                });
+            });
+            // 将col元素添加到row元素中
+            divElement.append(col1Element, col2Element, col3Element);
+
+            // 将row元素添加到页面中的某个容器中
+            $('#articletable').append(divElement);
+        }
+        function searchArticle() {
+            var data = $('#searchText').val();
+            $('#articletable').find('.row#articlelist').remove();
+            $.ajax({
+                url: '/searchdelete',  // 替换为实际的后端处理文件的URL
+                type: 'POST',
+                data: { data: data },
+                success: function (response) {
+                    // 处理上传成功后的逻辑
+                    for (var i = 0; i < response.length; i++) {
+                        addDeleteList(response[i].title, response[i].kind);
+                    }
+                    //alert(response);
+                },
+                error: function (xhr, status, error) {
+                    // 处理上传失败后的逻辑
+                    alert('失败：' + error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

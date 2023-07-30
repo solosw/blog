@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>后台</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap1.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>博客后台</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="backarticles.html"><span>文章管理</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="backtools.html"><span>应用管理</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="backuser.html"><span>用户管理</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="backmark.html"><span>评论管理</span></a></li>
+                    <li class="nav-item"></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
+                        id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
+                        id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><button
+                        class="btn btn-primary py-0" type="button" style="margin-right:5px"
+                        onclick="addTools()">添加</button>
+                    <button class="btn btn-primary py-0" type="button" onclick="deletetool()">删除</button>
+                    <form
+                        class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <div class="input-group-append"></div>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav flex-nowrap ml-auto">
+                        <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
+                                data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto navbar-search w-100">
+                                    <div class="input-group"><input class="bg-light form-control border-0 small"
+                                            type="text" placeholder="Search for ...">
+                                        <div class="input-group-append"><button class="btn btn-primary py-0"
+                                                type="button"><i class="fas fa-search"></i></button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                                <div
+                                    class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                    <h6 class="dropdown-header">alerts center</h6>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="mr-3">
+                                            <div class="bg-primary icon-circle"><i
+                                                    class="fas fa-file-alt text-white"></i></div>
+                                        </div>
+                                        <div><span class="small text-gray-500">December 12, 2019</span>
+                                            <p>A new monthly report is ready to download!</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="mr-3">
+                                            <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div><span class="small text-gray-500">December 7, 2019</span>
+                                            <p>$290.29 has been deposited into your account!</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="mr-3">
+                                            <div class="bg-warning icon-circle"><i
+                                                    class="fas fa-exclamation-triangle text-white"></i></div>
+                                        </div>
+                                        <div><span class="small text-gray-500">December 2, 2019</span>
+                                            <p>Spending Alert: We've noticed unusually high spending for your account.
+                                            </p>
+                                        </div>
+                                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
+                                        Alerts</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                                <div
+                                    class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                    <h6 class="dropdown-header">alerts center</h6>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                src="assets/img/avatars/avatar4.jpeg">
+                                            <div class="bg-success status-indicator"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate"><span>Hi there! I am wondering if you can help me
+                                                    with a problem I've been having.</span></div>
+                                            <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                src="assets/img/avatars/avatar2.jpeg">
+                                            <div class="status-indicator"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate"><span>I have the photos that you ordered last
+                                                    month!</span></div>
+                                            <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                src="assets/img/avatars/avatar3.jpeg">
+                                            <div class="bg-warning status-indicator"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate"><span>Last month's report looks great, I am very
+                                                    happy with the progress so far, keep up the good work!</span></div>
+                                            <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                src="assets/img/avatars/avatar5.jpeg">
+                                            <div class="bg-success status-indicator"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate"><span>Am I a good boy? The reason I ask is
+                                                    because someone told me that people say this to all dogs, even if
+                                                    they aren't good...</span></div>
+                                            <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
+                                        </div>
+                                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
+                                        Alerts</a>
+                                </div>
+                            </div>
+                            <div class="shadow dropdown-list dropdown-menu dropdown-menu-right"
+                                aria-labelledby="alertsDropdown"></div>
+                        </li>
+                        <div class="d-none d-sm-block topbar-divider"></div>
+                        <li class="nav-item dropdown no-arrow">
+                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"></a>
+                                <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
+                                        class="dropdown-item" href="#"><i
+                                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
+                                        class="dropdown-item" href="#"><i
+                                            class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
+                                        log</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
+                                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="row mb-3">
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-primary shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5%
+                                                since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5%
+                                                since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-5"></div>
+                </div>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label></label></div>
+                            </div>
+                        </div>
+                        <div class="table-responsive table mt-2" id="dataTable-1" role="grid"
+                            aria-describedby="dataTable_info">
+                            <table class="table my-0" id="dataTable" style="display: none;">
+                                <thead>
+                                    <tr>
+                                        <th>应用名</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tooltable">
+                                    <tr class="toollist">
+                                        <td class="tool-name">Airi Satou</td>
+                                        <td>
+                                            <button class="btn btn-primary" type="button" id="deletetool">删除</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td><strong></strong></td>
+                                        <td><strong></strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong></strong></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="toolssumbit">
+                <div style="margin-left: 10px;">图片:</div>
+                <input type="file" id="toolimage" placeholder="html">
+                <textarea type="" id="toolfile" placeholder="输入html下的内容"></textarea>
+                <input type="text" placeholder="文件名" id="toolname">
+                <button>提交</button>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Solosw 2023</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/imageTobase64.js"></script>
+    <script>
+        function addTools() {
+            $('#toolssumbit').css('display', 'block');
+            $('#dataTable').css('display', 'none');
+        }
+
+        function clearall() {
+            $('tr.toollist').remove();
+        }
+        function addTool(name) {
+            var newRow = $('<tr>').addClass('toollist');
+            var nameCell = $('<td>').addClass('tool-name').text(name);
+            var buttonCell = $('<td>');
+            var deleteButton = $('<button>').addClass('btn btn-primary').attr('type', 'button').attr('id', 'deletetool').text('删除');
+            buttonCell.append(deleteButton);
+            newRow.append(nameCell, buttonCell);
+            deleteButton.click(function () {
+
+                $.ajax({
+                    url: '/deletetool', // 后端接口的URL
+                    type: 'POST',
+                    data: { data: name },
+                    success: function (response) {
+                        // 处理上传成功后的逻辑
+                        if (response == true) {
+                            newRow.remove();
+                        } else {
+                            alert('删除失败');
+                        }
+                    },
+                    error: function (error) {
+                        // 处理上传失败后的逻辑
+                        alert(error);
+                    }
+                });
+            }
+
+            );
+            // 将新行添加到表格中
+            $('#dataTable').append(newRow);
+        }
+        function deletetool() {
+            $('#toolssumbit').css('display', 'none');
+            $('#dataTable').css('display', 'block');
+            clearall();
+            $.ajax({
+                url: '/gettoollist', // 后端接口的URL
+                type: 'POST',
+                success: function (response) {
+                    // 处理上传成功后的逻辑
+                    for (var i = 0; i < response.length; i++) {
+                        addTool(response[i]);
+                    }
+                },
+                error: function (error) {
+                    // 处理上传失败后的逻辑
+                    alert(error);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('#toolssumbit button').click(function () {
+                var imageFile = $('#toolimage')[0].files[0];
+                var htmlFile = $('#toolfile').val();
+                var fileName = $('#toolname').val();
+                var data={};
+                imageToBase64(imageFile).then((base64) => {
+                    data.imagebase = base64;
+                    data.name = fileName;
+                    data.htmlfile = htmlFile;
+
+                    // 发送Ajax请求
+                    $.ajax({
+                        url: '/uploadtool', // 后端接口的URL
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        success: function (response) {
+                            // 处理上传成功后的逻辑
+                            alert(response);
+                        },
+                        error: function (error) {
+                            // 处理上传失败后的逻辑
+                            alert(error);
+                        }
+                    });
+                }).catch((error) => {
+                    console.error(error); // 处理错误
+                });
+                // 创建FormData对象
+                
+                // 发送Ajax请求
+               
+            });
+        });
+    </script>
+
+</body>
+
+</html>

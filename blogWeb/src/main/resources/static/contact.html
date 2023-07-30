@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>联系</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" data-aos="fade-up"
+        data-aos-duration="1200">
+        <div class="container"><i class="fa fa-star"></i><a class="navbar-brand" href="#">Solosw</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link" onclick="getIndexPage()">首页</a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="contact-clean" style="background: rgba(241,247,252,0);">
+        <form data-aos="flip-up" method="post" style="background: url(&quot;assets/img/contact.png&quot;), #ffffff;">
+            <h2 class="text-center">Contact&nbsp;</h2>
+            <div class="form-group"><input id="name" class="form-control" type="text" name="name" placeholder="姓名">
+            </div>
+            <div class="form-group"><input id="email" class="form-control is-invalid" type="email" name="email"
+                    placeholder="联系邮箱"><small class="form-text text-danger">Please enter a correct email
+                    address.</small></div>
+            <div class="form-group"><textarea id="content" class="form-control" name="message" placeholder="留言内容"
+                    rows="14"></textarea></div>
+            <div class="form-group"><button class="btn btn-primary" type="button" onclick="sendContent()">发送</button></div>
+        </form>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <script src="assets/js/Nav.js"></script>
+    <script>
+        function sendContent() {
+            var username = $('#name').val();
+            var em = $('#email').val();
+            var msy = $('#content').val();
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(em)) {
+                alert("输入正确的邮箱格式");
+                return;
+            }
+            if (username.trim() === '') {
+                alert("输入名字");
+                return;
+            }
+
+            // 创建用户对象
+            var user = {
+                name: username,
+                email: em,
+                msy: msy
+            };
+            $.ajax({
+                url: '/contact.action',  // 替换为你的后端注册请求路径
+                type: 'POST',  // 请求类型
+                dataType: 'text',  // 响应数据类型
+                contentType: 'application/json',  // 请求内容类型
+                data: JSON.stringify(user),  // 将用户对象转换为JSON字符串
+                success: function (response) {
+                    // 注册成功处理逻辑     
+                    
+                        alert("发送成功");
+                    
+                       
+                },
+                error: function (xhr, status, error) {
+                    // 注册失败处理逻辑
+                    console.error(error);
+                    alert('发送失败'+"服务器错误"+error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <style>
+        .top-banner {
+            position: relative;
+            text-align: center;
+        }
+
+        .top-banner img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .banner-text {
+            display: inline-block;
+            opacity: 0;
+            font-size: xx-large;
+            color: white;
+        }
+
+        #contentdiv {
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        #contentdiv>div {
+            margin-bottom: 20px;
+        }
+
+        h4#kind {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        p#title {
+            margin: 5px 0 0;
+            padding: 0;
+            font-size: 14px;
+            color: #666;
+            font-weight: normal;
+        }
+
+        div.contentlist {
+            margin-bottom: 10px;
+            background: #f7f3f3;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body style="/*background: url(&quot;assets/img/index.png&quot;), #f7f7f7;*//*z-index: 3;*//*height: auto;*/">
+
+    <div class="top-banner">
+        <img src="assets/img/sky.png" alt="Banner Image">
+        <div class="banner-text-container">
+            <div class="banner-text">欢</div>
+            <div class="banner-text">迎</div>
+            <div class="banner-text">你</div>
+            <div class="banner-text">的</div>
+            <div class="banner-text">到</div>
+            <div class="banner-text">来</div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" data-aos="zoom-in"
+        data-aos-duration="1200">
+        <div class="container"><i class="fa fa-star"></i><a class="navbar-brand" href="#">Solosw</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">应用</a></li>
+                    <li class="nav-item"><a class="nav-link" href="articles.html">文章</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">留言</a></li>
+                </ul>
+                <form class="form-inline mr-auto" target="_self">
+                    <div class="form-group"><label for="search-field"><i class="fa fa-search" id="searchArticle"
+                                onclick="searchArticle()"></i></label><input class="form-control search-field"
+                            type="search" id="searchinput" name="search" style="background: #f5f5f5;"
+                            placeholder="输入关键字搜索"></div>
+                </form>
+                <a id="login" class="btn btn-light action-button" role="button" href="#" style="margin-right: 5%;"
+                    onclick="getLoginPage()">登录</a>
+                <a id="sign" class="btn btn-light action-button" role="button" href="#" onclick="getSignPage()">注册</a>
+                <p><b id="tips">已登入</b></p>
+            </div>
+        </div>
+    </nav>
+    <div data-aos="zoom-in" data-aos-duration="1200" class="containers"
+        style="height: auto;color: #212429;background: rgba(191,195,210,0.46);width: 100%;padding: 15px;">
+        <div id="content" class="content"
+            style="background: rgba(244,241,241,0);height: 100%;width: 50%;margin-right: 23px;padding: 9px;">
+            <div class="card" style="margin-bottom: 11px;background: #0eeeb8;"><img class="card-img w-100 d-block"
+                    style="background: rgba(255,255,255,0.53);">
+                <div class="card-img-overlay" style="background: #ffffff;">
+                    <h4>文章列表</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" style="margin-bottom: 4px;">
+                    <br>文章列表
+                </div>
+                <div class="card-body" style="margin: 0;margin-top: 0;padding: 20px;">
+                    <div id="contentdiv" style="margin: 5px;background: #f7f3f3;">
+                        <div class="contentlist">
+                            <h4 id="kind">分类: linux</h4>
+                            <p id="title"> 标题</p>
+                        </div>
+                        <div class="contentlist">
+                            <h4 id="kind">分类: linux</h4>
+                            <p id="title"> 标题</p>
+                        </div>
+                        <div class="contentlist">
+                            <h4 id="kind">分类: linux</h4>
+                            <p id="title"> 标题</p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div data-aos="zoom-out-down" data-aos-delay="600" id="inf" class="inf"
+            style="width: 50%;height: auto;background: rgba(34,3,221,0);color: rgb(13,91,222);">
+            <div class="mainpanel"
+                style="height: 200px;background: rgba(244,241,241,0.14);text-align: justify;width: 221px;">
+                <div class="header" style="height: 25%;"><img src="assets/img/head.png"
+                        style="width: 20%;border-radius: 44px;margin-right: 0;"></div>
+                <div class="show" style="height: 50%;margin-top: 10px;">
+                    <div class="articlenum" style="width: 45%;background: rgba(242,232,232,0.2);border-radius: 95px;">
+                        <label>文章数:</label><label id="articlenum">0</label>
+                    </div>
+                    <div class="articlenum"
+                        style="width: 45%;margin-left: 10%;background: rgba(245,238,238,0.18);border-radius: 81px;">
+                        <label>浏览量:</label><label id="looknum">0</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic" style="background: #ffffff;margin-top: 0;">
+        <footer id="footer" style="margin-top: 0px;">
+            <div class="social"><a href="https://github.com/solosw?tab=repositories"><i class="icon ion-social-github"></i></a></div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <script src="assets/js/Nav.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var textElements = $(".banner-text");
+            var index = 0;
+            var interval = setInterval(function () {
+                textElements.eq(index).animate({ opacity: 1 }, 500);
+                index++;
+
+                if (index >= textElements.length) {
+                    clearInterval(interval);
+                }
+            }, 1000);
+            getbogInf();
+            $.ajax({
+                url: "/islogin",
+                method: "GET",
+                success: function (response) {
+                    if (response == true) {
+                        $('#login').css('display', 'none');
+                        $('#sign').css('display', 'none');
+                        $('#tips').css('display', 'block');
+                        $.ajax({
+                            url: "/getname",
+                            method: "POST",
+                            success: function (response) {
+                                $('#tips').text(response);
+                            },
+                            error: function (xhr, status, error) {
+                                alert(error);
+                            }
+                        })
+                    } else {
+                        $('#login').css('display', 'block');
+                        $('#sign').css('display', 'block');
+                        $('#tips').css('display', 'none');
+                    }
+                    // 根据实际情况处理响应数据
+                },
+                error: function (xhr, status, error) {
+                    alert("Error:", error);
+                    $('#login').css('display', 'block');
+                    $('#sign').css('display', 'block');
+                    $('#tips').css('display', 'none');
+                    // 处理请求错误情况
+                }
+            });
+
+            $.ajax({
+                url: "/getindexarticle",
+                type: "GET",
+                success: function (response) {
+                    var data = response;
+                    clearAll();
+                    // 遍历响应数据，为每个图片创建并展示<img>元素
+                    for (var i = 0; i < data.length; i++) {
+
+                        
+                        AddArticle(data[i].title, data[i].kind);
+                    }
+
+                }
+            });
+        });
+
+        function AddArticle(title, kind) {
+            var newElement = $('<div>')
+                .addClass('contentlist')
+                .append($('<h4>').addClass('kind').text('分类: ' + kind))
+                .append($('<p>').addClass('title').text('标题: ' + title));
+            newElement.click(function () {
+                $.ajax({
+                    url: "/getIndexArticle",
+                    type: "GET",
+                    data: { title: title, kind: kind },
+                    success: function (response) {
+                        window.location.href = response;
+
+                    }
+                });
+            })
+
+            $('#contentdiv').append(newElement);
+        }
+        function clearAll() {
+            $('div.contentlist').remove();
+        }
+
+        function searchArticle() {
+            var searchinput= $('#searchinput').val();
+            $.ajax({
+                url: "/getIndexArticleBySearch",
+                type: "GET",
+                data: { data: searchinput },
+                success: function (response) {
+
+                    var data = response;
+                    clearAll();
+                    // 遍历响应数据，为每个图片创建并展示<img>元素
+                    for (var i = 0; i < data.length; i++) {
+
+                        AddArticle(data[i].title, data[i].kind);
+                    }
+                }
+            });
+        }
+
+        function getbogInf()
+        {
+            $.ajax({
+                url: "/getbogInf",
+                type: "GET",
+                success: function (response) {
+
+                    $('#articlenum').text(response.articlenum);
+                    $('#looknum').text(response.looknum);
+                    // 遍历响应数据，为每个图片创建并展示<img>元素
+                    
+                },
+                error:function(error)
+                {
+                    alert(error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
