@@ -38,16 +38,13 @@
         </div>
     </nav>
     <div id="mydiv"></div>
-    <div class="projects-clean" style="background: url(&quot;assets/img/tools.png&quot;), rgba(255,255,255,0);">
+    <div class="projects-clean" style="background-color:  rgba(255,255,255,0);">
         <div class="container">
             <div class="intro">
                 <h2 class="text-center" style="color: white;">应用</h2>
             </div>
             <div class="row projects" id="toollist">
-                <div class="col-sm-6 col-lg-4 item" id="table" style="background-color: gray;">
-                    <img class="img-fluid" src="assets/img/desk.jpg" id="toolimage">
-                    <h3 class="name" style="color: rgb(226,232,238);" id="toolname">Project Name</h3>
-                </div>
+               
 
             </div>
         </div>
@@ -82,8 +79,8 @@
             });
         })
         function addTool(src, name) {
-            var div = $('<div>').addClass('col-sm-6 col-lg-4 item').css('background-color','gray');
-            var img = $('<img>').addClass('img-fluid').attr('src', src).attr('id', 'toolimage');
+            var div = $('<div>').addClass('col-sm-6 col-lg-4 item').css('background-image','url("assets/img/tools.png")').css('opacity','0.75');
+            var img = $('<img>').addClass('img-fluid').attr('src', src).attr('id', 'toolimage').css('width','640px').css('height','426px');
             var h3 = $('<h3>').addClass('name').css('color', 'rgb(226,232,238)').attr('id', 'toolname').text(name);
             div.click(function () {
                 $.ajax({

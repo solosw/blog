@@ -136,12 +136,12 @@
                     <h4>文章列表</h4>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" style="background-image: url(assets/img/aritcles.png);">
                 <div class="card-header" style="margin-bottom: 4px;">
                     <br>文章列表
                 </div>
                 <div class="card-body" style="margin: 0;margin-top: 0;padding: 20px;">
-                    <div id="contentdiv" style="margin: 5px;background: #f7f3f3;">
+                    <div id="contentdiv" style="margin: 5px;background-color: rgba(0,0,0,0);">
                         <div class="contentlist">
                             <h4 id="kind">分类: linux</h4>
                             <p id="title"> 标题</p>
@@ -167,15 +167,15 @@
         <div data-aos="zoom-out-down" data-aos-delay="600" id="inf" class="inf"
             style="width: 50%;height: auto;background: rgba(34,3,221,0);color: rgb(13,91,222);">
             <div class="mainpanel"
-                style="height: 200px;background: rgba(244,241,241,0.14);text-align: justify;width: 221px;">
+                style="height: 200px;background-image: url('assets/img/headback.png');text-align: justify;width: 221px;opacity: 0.9;border-radius: 15px;">
                 <div class="header" style="height: 25%;"><img src="assets/img/head.png"
                         style="width: 20%;border-radius: 44px;margin-right: 0;"></div>
                 <div class="show" style="height: 50%;margin-top: 10px;">
-                    <div class="articlenum" style="width: 45%;background: rgba(242,232,232,0.2);border-radius: 95px;">
+                    <div class="articlenum" style="width: 45%;background: rgba(255,255,255,0);border-radius: 95px;">
                         <label>文章数:</label><label id="articlenum">0</label>
                     </div>
                     <div class="articlenum"
-                        style="width: 45%;margin-left: 10%;background: rgba(245,238,238,0.18);border-radius: 81px;">
+                        style="width: 45%;margin-left: 10%;background: rgba(255,255,255,0);border-radius: 81px;">
                         <label>浏览量:</label><label id="looknum">0</label>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
 
         function AddArticle(title, kind) {
             var newElement = $('<div>')
-                .addClass('contentlist')
+                .addClass('contentlist').css('background-color','rgba(255,255,255,0.75)')
                 .append($('<h4>').addClass('kind').text('分类: ' + kind))
                 .append($('<p>').addClass('title').text('标题: ' + title));
             newElement.click(function () {

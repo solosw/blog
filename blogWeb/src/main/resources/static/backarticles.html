@@ -237,9 +237,18 @@
                 width: "90%",
                 height: 640,
                 syncScrolling: "single",
-                path: "lib/lib/"
+                path: "lib/lib/",
+                onload: function () {
+                    var savedText = localStorage.getItem('savedText');
+                    if (savedText) {
+                        testEditor.setMarkdown(savedText);
+                    }
+                }
             });
-
+            testEditor.on('change', function () {
+                var text = testEditor.getMarkdown();
+                localStorage.setItem('savedText', text);
+            });
 
         });
         function writearticle() {
@@ -272,15 +281,15 @@
             formData.append('kind', kind);
             formData.append('title', title);
             formData.append('content', content);
-            var data={};
+            var data = {};
             if (file) {
-                
+
                 imageToBase64(file).then((base64) => {
-                    
-                    data.kind=kind;
-                    data.title=title;
-                    data.imagebase=base64;
-                    data.content=content;
+
+                    data.kind = kind;
+                    data.title = title;
+                    data.imagebase = base64;
+                    data.content = content;
                     // 发送Ajax请求
                     $.ajax({
                         url: '/uploadArticle',  // 替换为实际的后端处理文件的URL
